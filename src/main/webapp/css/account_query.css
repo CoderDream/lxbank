@@ -1,0 +1,338 @@
+/* CSS Document */
+body {
+	margin: 0px;
+	height: 100%;
+	padding: 0px background:#FEFEFE no-repeat right bottom;
+	font-family: ‘Lucida Grande’, ’Lucida Sans Unicode’, ’宋体’，arial, verdana, sans-serif;
+	color: #666;
+	font-size: 12px;
+	line-leight: 100%;
+}
+
+#top {
+	position: relative;
+}
+
+#wrap {
+	text-align: left;
+	margin: 0 auto;
+}
+
+#header {
+	margin: auto;
+	background-image: url(../images/main_top_bg.png);
+	width: 100%;
+	height: 65px;
+}
+
+img {
+	padding: 0;
+	border: 0;
+}
+
+#postBar {
+	position: fixed;
+	left: 0px;
+	bottom: 0;
+	background-image: url(../images/main_bottom_bg.png);
+	width: 100%;
+	height: 48px;
+	_position: absolute;
+	_top: expression(document.documentElement.clientHeight + document.documentElement.scrollTop - this.offsetHeight);
+}
+
+#footer {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	background-image: url(../images/main_bottom_bg.png);
+	width: 100%;
+	height: 67px;
+	/*position: relative;
+	margin-top: -150px;
+	height: 67px;
+	clear: both;
+	background: #fcdcdd;
+	background-image: url(../images/main_bottom_bg.png);
+	*/
+	/*
+	position: absolute;
+	bottom: 0px;
+	clear: both;
+	padding: 0px;
+	background-image: url(../images/main_bottom_bg.png);
+	width: 100%;
+	height: 67px;
+	*/
+}
+
+#mainbox {
+	margin: auto;
+	border: 0px;
+	width: 1251px;
+	background-image: url(../images/main_bg.png);
+	text-align: center;
+}
+
+#part {
+	display: block;
+	text-align: center;
+}
+
+#part_left {
+	display: block;
+	text-align: left;
+}
+
+#part_left_btn {
+	display: block;
+	text-align: left;
+	vertical-align: middle;
+	padding: 40px;
+}
+
+#part_right {
+	float: right;
+	padding: 15px;
+}
+
+#span_main_top {
+	display: block;
+	text-align: center;
+	padding: 5px;
+
+	/*margin: auto;
+	width: 100%;
+	position: absolute;
+	top: 148px;
+	width: 740px;
+	height: 340px;
+	left: 50%;
+	margin: 0px 0 0 -370px;*/
+}
+
+#span_main_body {
+	display: block;
+	text-align: center;
+	padding: 5px;
+	/*
+	
+	margin: auto;
+	width: 100%;
+	position: absolute;
+	top: 18px;
+	width: 740px;
+	height: 88px;
+	left: 50%;
+	margin: 0px 0 0 -370px;*/
+}
+
+#span_btn_enter {
+	margin: auto;
+	width: 100%;
+	padding: 5px;
+	/*position: absolute;
+	top: 148px;
+	width: 740px;
+	left: 50%;
+	margin: 0px 0 0 -370px;*/
+}
+
+#span_label1 {
+	margin: auto;
+	font-size: 16px;
+	font-weight: bold;
+	color: blue;
+	text-align: left;
+}
+
+#span_label2 {
+	margin: auto;
+	font-size: 16px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+#selectStyle {
+	margin: auto;
+	font-size: 16px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.selectStyle {
+	margin: auto;
+	font-size: 16px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+#span_label_1 {
+	font-size: 20px;
+	height: 38px;
+	width: 241px;
+	background: #fff;
+	border: 1px solid #fff;
+	padding: 5px;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	background: #fff;
+	width: 241px;
+	height: 38px;
+}
+
+/*
+以点开头，对应class名称
+*/
+.table1 {
+	border-collapse: collapse;
+	border: none;
+	background-color: #FFFFFF;
+	width: 1231px;
+	cellspacing: 0;
+	cellpadding: 0;
+	text-align: center;
+}
+
+.th1 {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 15px;
+	color: blue;
+	background-color: #FAFAFA;
+	border-left: none; /*去除表格左边的边框*/
+	border-right: none; /*去除表格右边的边框*/
+}
+
+/* 最后一个td */
+.first_line_th {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 14px;
+	text-align: left;
+	background-color: #FAFAFA;
+	font-size: 11px;
+	color: #333333;
+	font-size: 11px;
+	background-color: #FAFAFA;
+}
+
+/* 第一个th */
+.first_child_th {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 15px;
+	color: blue;
+	border-left: 2px solid #D7D7D7;
+	border-right: none;
+	height: 34px;
+	font-size: 15px;
+	color: blue;
+	background-color: #FAFAFA;
+	border-right: none; /*去除表格右边的边框*/
+}
+
+/* 最后一个th */
+.last_child_th {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 15px;
+	color: blue;
+	background-color: #FAFAFA;
+	border-right: 2px solid #D7D7D7;
+	border-left: none; /*去除表格左边的边框*/
+}
+
+.td_left {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 14px;
+	text-align: right;
+	color: #333333;
+}
+
+.td_right {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 14px;
+	text-align: left;
+	color: #333333;
+}
+
+.td1 {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 14px;
+	text-align: center;
+	color: #333333;
+	border-left: none; /*去除表格左边的边框*/
+	border-right: none; /*去除表格右边的边框*/
+}
+
+/* 第一个td */
+.first_child_td {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 14px;
+	color: #333333;
+	border-right: none; /*去除表格右边的边框*/
+}
+
+/* 最后一个td */
+.last_child_td {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 14px;
+	color: #333333;
+	border-left: none; /*去除表格右边的边框*/
+}
+
+/* 最后一个td */
+.last_second_line_td {
+	text-align: right;
+	/*vertical-align: center;
+	float: right;*/
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 14px;
+	color: #333333;
+	border: 2px solid #D7D7D7;
+	/*width: 1219px;*/
+}
+
+/* 最后一个td */
+.last_line_td {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 11px;
+	background-color: #FAFAFA;
+	font-size: 11px;
+	color: #333333;
+	font-size: 11px;
+}
+
+.td2 {
+	border: 2px solid #D7D7D7;
+	padding: 5px;
+	height: 34px;
+	font-size: 14px;
+	text-align: center;
+	color: #333333;
+}
+
+#span_submit {
+	/*background-image: url(../images/btn_ok.png);*/
+	vertical-align: bottom;
+	width: 41px;
+	height: 21px;
+}

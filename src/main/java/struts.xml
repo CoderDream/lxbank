@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="home" namespace="/" extends="struts-default">
+		<default-action-ref name="index" />
+		<action name="index">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<!-- 定义LoggerInterceptor拦截器 -->
+			<interceptor name="logger"
+				class="com.luxunsoft.interceptor.LoggerInterceptor" />
+
+			<!-- 定义AuthenticationInterceptor拦截器 -->
+			<interceptor name="auth"
+				class="com.luxunsoft.interceptor.AuthenticationInterceptor" />
+
+			<!-- 定义我们自己的拦截器栈，在Action的配置中，可以直接引用这个拦截器栈 -->
+			<interceptor-stack name="securityStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="auth" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- <default-interceptor-ref name="securityStack" /> -->
+
+		<global-results>
+			<result name="login">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</global-results>
+	</package>
+
+	<package name="login" namespace="/" extends="default">
+		<action name="login" class="com.luxunsoft.action.LoginAction">
+			<result>/WEB-INF/jsp/main.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+
+	<package name="show" namespace="/" extends="default">
+		<action name="show" class="com.luxunsoft.action.ShowAction">
+			<result name="success">show.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+	</package>
+
+	<package name="account" namespace="/" extends="default">
+		<action name="account" class="com.luxunsoft.action.AccountAction">
+			<result name="success">/WEB-INF/jsp/account.jsp</result>
+			<result name="error">error.jsp</result>
+			<interceptor-ref name="securityStack" />
+		</action>
+
+		<!-- 配置名为Regist的Action，该Action采用默认的regist方法处理用户请求 -->
+		<action name="newPage" class="com.luxunsoft.action.AccountAction"
+			method="newPage">
+			<result name="success">/WEB-INF/jsp/account.jsp</result>
+			<result name="error">error.jsp</result>
+			<interceptor-ref name="securityStack" />
+		</action>
+	</package>
+
+	<package name="accountQuery" namespace="/" extends="default">
+		<action name="accountQuery" class="com.luxunsoft.action.AccountQueryAction">
+			<result name="input">/WEB-INF/jsp/accountQuery.jsp</result>
+			<result name="success">/WEB-INF/jsp/accountDetail.jsp</result>
+			<result name="error">error.jsp</result>
+			<interceptor-ref name="securityStack" />
+		</action>
+	</package>
+
+	<package name="accountDetail" namespace="/" extends="default">
+		<action name="accountDetail" class="com.luxunsoft.action.AccountDetailAction">
+			<result name="success">/WEB-INF/jsp/accountDetail.jsp</result>
+			<result name="input">/WEB-INF/jsp/accountDetail.jsp</result>
+			<result name="error">error.jsp</result>
+			<interceptor-ref name="securityStack" />
+		</action>
+
+		<action name="newPageDetail" class="com.luxunsoft.action.AccountDetailAction"
+			method="newPageDetail">
+			<result name="success">/WEB-INF/jsp/accountDetail.jsp</result>
+			<result name="error">error.jsp</result>
+			<interceptor-ref name="securityStack" />
+		</action>
+
+		<action name="exportExcelFile" class="com.luxunsoft.action.AccountDetailAction"
+			method="exportExcelFile">
+			<result name="success" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename=${fileName}</param>
+				<param name="inputName">excelFile</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="upload" namespace="/" extends="default">
+		<!-- 定义上传的Action -->
+		<action name="uploadFile" class="com.luxunsoft.action.UploadExcelAction">
+			<result name="success">/result.jsp</result>
+			<result name="input">/upload.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<!-- 定义上传的Action -->
+		<action name="readSaeStorage" class="com.luxunsoft.action.UploadExcelAction"
+			method="readSaeStorage">
+			<result name="success">/upload.jsp</result>
+			<result name="input">/upload.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<!-- 定义上传的Action -->
+		<action name="writeSaeStorage" class="com.luxunsoft.action.UploadExcelAction"
+			method="writeSaeStorage">
+			<result name="success">/upload.jsp</result>
+			<result name="input">/upload.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<!-- 定义下载的Action -->
+		<action name="download" class="com.luxunsoft.action.DownloadAction">
+			<result name="success" type="stream">
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="inputName">downloadFile</param>
+			</result>
+		</action>
+	</package>
+</struts>
